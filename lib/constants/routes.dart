@@ -1,0 +1,1 @@
+const mainGoalRoute = '/main-goal/';

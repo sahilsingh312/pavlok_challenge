@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pavlok_challenge/models/goals_model.dart';
 import 'package:pavlok_challenge/theme/app_assets.dart';
 import 'package:pavlok_challenge/theme/colors.dart';
 import 'package:pavlok_challenge/theme/custom_icons.dart';
+import 'package:pavlok_challenge/widgets/set_goals_box.dart';
 
 class TabBarHabit extends StatefulWidget {
   const TabBarHabit({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class _TabBarHabitState extends State<TabBarHabit>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int _currentIndex = 0;
+  int selectedIndex = -1;
 
   _handleTabSelection() {
     setState(() {
@@ -91,39 +94,61 @@ class _TabBarHabitState extends State<TabBarHabit>
                   ),
                 ],
               ),
-               Expanded(
+              Expanded(
                 child: TabBarView(
+                  controller: _tabController,
                   children: [
-                    Column(
-                      children: [
-                        SizedBox(height: screenHeight * 0.044,),
-                        Container(
-                          height: 72,
-                            width: screenWidth * 0.866,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF8F3FF),
-                              borderRadius: BorderRadius.all(const Radius.circular(16.0)),
-                              border: Border.all(
-                                  color: Color(0xFF8338EC),
-                                  width: 0.8,
-                                  style: BorderStyle.solid
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Color(0xFF18274b),
-                                  spreadRadius: -4,
-                                  blurRadius: 40.0,
-                                  offset: Offset(0, 14),
-                                ),
-
-                              ],
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: screenHeight * 0.044,
+                          ),
+                          SizedBox(
+                            height: screenHeight * 0.45,
+                            child: ListView.builder(
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: false,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      selectedIndex = index;
+                                    });
+                                  },
+                                    child: SetGoalsBox(goodHabitGoals[index], selectedIndex == index));
+                              },
+                              itemCount: goodHabitGoals.length,
                             ),
-                          child: Text("Hello all", style: TextStyle(color: Colors.black, fontSize: 20),),
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
-                    Center(
-                      child: Text('Tab 2'),
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: screenHeight * 0.044,
+                          ),
+                          SizedBox(
+                            height: screenHeight * 0.6,
+                            child: ListView.builder(
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: false,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                    onTap: (){
+                                      setState(() {
+                                        selectedIndex = index;
+                                      });
+                                    },
+                                    child: SetGoalsBox(badHabitGoals[index], false));
+                              },
+                              itemCount: badHabitGoals.length,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

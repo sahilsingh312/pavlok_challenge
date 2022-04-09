@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pavlok_challenge/theme/app_assets.dart';
 import 'package:pavlok_challenge/theme/colors.dart';
+import 'package:pavlok_challenge/widgets/primary_button.dart';
 import 'package:pavlok_challenge/widgets/tab_bar_habit.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -56,6 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: const PrimaryButton()
+
     );
   }
 }

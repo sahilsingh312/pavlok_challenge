@@ -5,7 +5,7 @@ class CustomColors{
   static const Color scaffoldBackgroundColor = Color(0xFFFCFBFF);
   static const Color dividers = Color(0xFFE9E9E9);
   static const Color yellow = Color(0xFFFFB706);
-  static const Color primaryDark = Color(0xFF00A6ED);
+  static const Color primaryDark = Color(0xFF712BD3);
   static const Color primaryLight = Color(0xFF00A6ED);
   static const Color secondary = Color(0xFF00A6ED);
   static const Color secondaryDark = Color(0xFF00A6ED);
