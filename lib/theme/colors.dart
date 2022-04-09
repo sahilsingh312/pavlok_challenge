@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomColors{
-  static const Color primary = Color(0xFF00A6ED);
+  static const Color primary = Color(0xFF8338EC);
   static const Color scaffoldBackgroundColor = Color(0xFFFCFBFF);
   static const Color dividers = Color(0xFFE9E9E9);
   static const Color yellow = Color(0xFFFFB706);
@@ -24,8 +24,8 @@ class CustomColors{
   static const Color onSurfaceVariant = Color(0xFFFFFFFF);
   static const Color onErrorVariant = Color(0xFF000000);
   static const Color brightnessAwareColor = Color(0xFF00A6ED);
-  static const Color textPrimary = Color(0xFF000000);
-  static const Color textSecondary = Color(0xFF000000);
+  static const Color textPrimary = Color(0xFF383E53);
+  static const Color textSecondary = Color(0xFF939295);
   static const Color textHint = Color(0xFF000000);
   static const Color textDisabled = Color(0xFF000000);
   static const Color textIcon = Color(0xFF000000);
